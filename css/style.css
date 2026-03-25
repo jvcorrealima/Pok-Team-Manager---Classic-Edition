@@ -1,0 +1,135 @@
+/* 1. CONFIGURAÇÕES GERAIS */
+:root {
+    --vermelho-pokedex: #e3350d;
+    --azul-tela: #3aa1ff;
+    --verde-box: #4dad5b;
+    --preto-borda: #333;
+    --branco-fundo: #f0f0f0;
+}
+
+body {
+    background-color: #2c3e50;
+    font-family: 'Press Start 2P', cursive; /* A fonte de videogame que você escolheu */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 2. O CORPO DA POKÉDEX */
+main {
+    background-color: var(--vermelho-pokedex);
+    width: 100%;
+    max-width: 900px;
+    border: 8px solid #a12208;
+    border-radius: 20px 20px 100px 20px; /* Curva clássica do canto inferior */
+    padding: 25px;
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.4);
+}
+
+header {
+    background: white;
+    padding: 10px;
+    border: 4px solid var(--preto-borda);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h2 { font-size: 12px; margin: 5px 0; color: var(--preto-borda); }
+
+/* 3. A TELA BRANCA (ONDE FICAM OS DADOS) */
+section {
+    background-color: var(--branco-fundo);
+    padding: 20px;
+    border-radius: 10px;
+    border: 5px solid var(--preto-borda);
+}
+
+/* 4. ORGANIZAÇÃO DOS 6 POKÉMONS (GRID) */
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Coloca 2 ou 3 por linha sozinho */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+fieldset {
+    background: #fff;
+    border: 3px solid var(--azul-tela);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+legend {
+    background: var(--azul-tela);
+    color: white;
+    padding: 3px 8px;
+    font-size: 8px;
+    border-radius: 4px;
+}
+
+/* 5. INPUTS E LABELS */
+label {
+    display: block;
+    font-size: 7px;
+    margin: 10px 0 3px 0;
+    color: #666;
+    text-transform: uppercase;
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    border: 2px solid #ccc;
+    box-sizing: border-box; /* Impede o input de "vazar" do card */
+    font-family: Arial, sans-serif; /* Fonte comum para ser fácil de digitar */
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Estilo para as 4 habilidades ficarem em grade 2x2 */
+.habilidades-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+/* 6. BOX RESERVA (TEXTAREA) */
+.box-reserva-fieldset {
+    margin-top: 25px;
+    border-color: var(--verde-box);
+}
+
+.box-reserva-fieldset legend {
+    background: var(--verde-box);
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    box-sizing: border-box;
+    resize: none; /* Trava o tamanho da caixa */
+}
+
+/* 7. BOTÃO SALVAR */
+button {
+    width: 100%;
+    background: #ffcc00;
+    border: 4px solid var(--preto-borda);
+    padding: 15px;
+    margin-top: 20px;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+    font-size: 10px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #f1c40f;
+    transform: translateY(-2px);
+}

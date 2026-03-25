@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Pokédex Completa</title>
+    <style>
+        :root {
+            --red: #ff1c1c;
+            --dark-red: #9b0000;
+            --blue: #2196f3;
+            --gray: #f0f0f0;
+        }
+
+        body {
+            background-color: #222;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 9px;
+            color: #333;
+            margin: 20px;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--red);
+            padding: 25px;
+            border-radius: 20px 20px 80px 20px;
+            border: 8px solid var(--dark-red);
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        .screen {
+            background: var(--gray);
+            border: 5px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        header {
+            background: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 3px solid #333;
+        }
+
+        /* Grid para os 6 Pokémons */
+        .pokemon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        fieldset {
+            background: white;
+            border: 3px solid var(--blue);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        legend {
+            background: var(--blue);
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .input-block { margin-bottom: 10px; }
+        
+        label { display: block; margin-bottom: 4px; font-size: 7px; color: #666; }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+        }
+
+        /* Estilo para as Habilidades com Tipo */
+        .skill-row {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+        .skill-name { flex: 2; } /* Espaço maior para o nome do ataque */
+        .skill-type { flex: 1; } /* Espaço menor para o tipo (Fogo, Água, etc) */
+
+        .skill-type input {
+            background-color: #e3f2fd;
+            border-color: var(--blue);
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            border: 3px solid #4caf50;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .btn-save {
+            width: 100%;
+            padding: 15px;
+            background: #ffeb3b;
+            border: 4px solid #333;
+            font-family: 'Press Start 2P';
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        <h1>DADOS DO TREINADOR</h1>
+        <input type="text" placeholder="NOME DO TREINADOR" style="text-align:center; border:none; border-bottom:2px solid #333; background:transparent; width: 60%;">
+    </header>
+
+    <form class="screen">
+        <div class="pokemon-grid">
+            
+            <!-- Início do Bloco de Pokémon (Repetido 6x) -->
+            <!-- Vou deixar o código de 1 Pokémon, você pode copiar e colar para os outros 5 -->
+            
+            <script>
+                for(let i=1; i<=6; i++) {
+                    document.write(`
+                    <fieldset>
+                        <legend>POKÉMON #0${i}</legend>
+                        
+                        <div class="input-block">
+                            <label>NOME DO POKÉMON:</label>
+                            <input type="text" name="p${i}_nome">
+                        </div>
+
+                        <div class="skill-row">
+                            <div style="flex:1"><label>NÍVEL:</label><input type="number" name="p${i}_lv"></div>
+                            <div style="flex:1"><label>TIPO:</label><input type="text" name="p${i}_tipo_geral"></div>
+                        </div>
+
+                        <label>HABILIDADES / TIPOS:</label>
+                        
+                        <!-- Habilidade 1 -->
+                        <div class="skill-row">
+                            <input class="skill-name" type="text" name="p${i}_h1" placeholder="Ataque 1">
+                            <div class="skill-type"><input type="text" name="p${i}_h1_t" placeholder="Tipo"></div>
+                        </div>
+
+                        <!-- Habilidade 2 -->
+                        <div class="skill-row">
+                            <input class="skill-name" type="text" name="p${i}_h2" placeholder="Ataque 2">
+                            <div class="skill-type"><input type="text" name="p${i}_h2_t" placeholder="Tipo"></div>
+                        </div>
+
+                        <!-- Habilidade 3 -->
+                        <div class="skill-row">
+                            <input class="skill-name" type="text" name="p${i}_h3" placeholder="Ataque 3">
+                            <div class="skill-type"><input type="text" name="p${i}_h3_t" placeholder="Tipo"></div>
+                        </div>
+
+                        <!-- Habilidade 4 -->
+                        <div class="skill-row">
+                            <input class="skill-name" type="text" name="p${i}_h4" placeholder="Ataque 4">
+                            <div class="skill-type"><input type="text" name="p${i}_h4_t" placeholder="Tipo"></div>
+                        </div>
+                    </fieldset>
+                    `);
+                }
+            </script>
+
+        </div>
+
+        <fieldset style="border-color: #4caf50; margin-top: 20px;">
+            <legend style="background: #4caf50;">PC STORAGE (RESERVA)</legend>
+            <textarea placeholder="Guarde aqui seus pokemons reserva..."></textarea>
+        </fieldset>
+
+        <button type="submit" class="btn-save">SALVAR EQUIPE</button>
+    </form>
+</main>
+
+</body>
+</html>
